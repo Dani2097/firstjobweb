@@ -1,4 +1,29 @@
 .welcome-card ion-img {
   max-height: 35vh;
+
   overflow: hidden;
+}
+
+html, body {
+  width: 40%;
+  height: 40%;
+  margin: 0;
+  padding: 0;
+}
+ion-card{
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 30%;
+}
+img {
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+a{
+  color: #0ec254;
 }
