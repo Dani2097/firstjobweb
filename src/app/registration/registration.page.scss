@@ -1,12 +1,38 @@
-ion-input{
+ion-input {
 
-  border-bottom: 2px solid #7fc5a3;
+  //box-shadow: 1px 1px 2px 0px #313131;
+  margin-top: 1%;
+  align-content: center;
+  border-bottom: solid 1px white;
+  //background: rgba(0, 255, 255, 0.15);
+  // border-radius: 100px;
+  color: #fbfff8;
+
 }
-ion-button{
+.titolo{
+  font-size: 60px;
+  color: white;
+  font-family: Calibri,serif;
+}
+.grid{
+  width: 70%;
+
+  text-align: center;
+
+}
+
+ion-button {
+
+  width: 100%;
   margin-top: 3%;
 }
-a{
-  color: #486b50;
-  margin-top: 6%;
-  margin-left: 40%;
+
+a {
+  font-family: Calibri, serif;
+  color: #f9fffb;
+
+}
+
+ion-content.background {
+  --background: url('https://backgrounddownload.com/wp-content/uploads/2018/09/app-background-2.jpg') 0 0/100% 100% no-repeat;
 }

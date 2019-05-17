@@ -10,12 +10,18 @@ html, body {
   margin: 0;
   padding: 0;
 }
+ion-list{
+  margin-top: 1%;
+}
 ion-card{
+
+  color: black;
+  background: white;
   padding: 0;
   display: block;
   margin: 0 auto;
   width: 80%;
-  height: 30%;
+
 }
 img {
   padding: 0;
@@ -25,5 +31,9 @@ img {
   max-width: 100%;
 }
 a{
-  color: #0ec254;
+  color: #6090af;
+}
+ion-content.background {
+
+  --background: url('https://backgrounddownload.com/wp-content/uploads/2018/09/app-background-2.jpg') 0 0/100% 100% no-repeat;
 }
