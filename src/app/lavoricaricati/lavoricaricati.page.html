@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar color="medium">
+
+            <ion-buttons color="light" slot="start">
+
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons><ion-title color="light">
+            Lavori caricati
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+
+
+    <ion-card *ngFor="let item of lavoriCaricati">
+        <ion-card-header>
+            <div class="ion-text-right"> {{item.categoria}}</div>
+            <ion-icon class="icone" [name]="item.icon"></ion-icon>{{item.title}}
+        </ion-card-header>
+        <ion-card-content>
+
+
+            <div class="item-note" slot="center">
+                {{item.note}}
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+
+</ion-content>
