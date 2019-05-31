@@ -13,10 +13,10 @@
 <ion-content padding class="background">
 
 
-    <ion-card *ngFor="let item of lavoriCaricati">
+    <ion-card href="./home" *ngFor="let item of lavoriCaricati">
         <ion-card-header>
             <div class="ion-text-right"> {{item.categoria}}</div>
-            <ion-icon class="icone" [name]="item.icon"></ion-icon>{{item.title}}
+            <ion-icon class="icone" [name]="item.icon"></ion-icon><a href="./login">{{item.title}}</a>
         </ion-card-header>
         <ion-card-content>
 

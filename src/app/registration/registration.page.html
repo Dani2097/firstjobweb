@@ -1,30 +1,27 @@
-
-
-
-
 <ion-content padding class="background">
     <ion-menu-button color="medium"></ion-menu-button>
-  <ion-grid class="grid">
-    <ion-row>
-      <ion-col>
-        <div>
-  <ion-title class="titolo" >Sign up</ion-title>
-  <ion-input placeholder="Nome"></ion-input>
-  <ion-input placeholder="Cognome" ></ion-input>
-  <ion-input placeholder="Email"></ion-input>
-  <ion-input placeholder="Password"></ion-input>
-  <ion-input placeholder="Ripeti la password"></ion-input>
-
-        </div>
-        <ion-button color="light">registrati</ion-button>
-
-      </ion-col>
-      </ion-row><ion-row> <ion-col><a href="./login" >Gia' registrato? clicca qui</a></ion-col></ion-row>
-  </ion-grid>
+    <ion-grid class="grid">
+        <ion-row>
+            <ion-col>
+                <div>
+                    <ion-title class="titolo">Sign up</ion-title>
+                    <ion-input [(ngModel)]="nome" placeholder="Nome"></ion-input>
+                    <ion-input [(ngModel)]="cognome" placeholder="Cognome"></ion-input>
+                    <ion-input [(ngModel)]="username" placeholder="Email"></ion-input>
+                    <ion-input [(ngModel)]="contatto" placeholder="Contatto"></ion-input>
+                    <ion-input [(ngModel)]="password" placeholder="Password"></ion-input>
+                    <ion-input [(ngModel)]="ripetipassword" placeholder="Ripeti la password"></ion-input>
+                    <div class="datore"><ion-checkbox [(ngModel)]="check" ></ion-checkbox><ion-text color="light">    Spunta per registrarti come datore senno' sarai registrato come richiedente</ion-text></div>
+                </div>
 
 
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>  <ion-button (click)="postRegistrazione()" color="light">registrati</ion-button><a href="./login">Gia' registrato? clicca qui</a></ion-col>
 
-
+        </ion-row>
+    </ion-grid>
 
 
 </ion-content>

@@ -1,0 +1,42 @@
+ion-content.background {
+
+  --background: url('https://backgrounddownload.com/wp-content/uploads/2018/09/app-background-2.jpg') 0 0/100% 100% no-repeat;
+}
+h1{
+  color: #4c8dff;
+
+  margin: auto;
+}
+ion-item{
+
+  font-size: 68px;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  alignment-baseline: center;
+  text-align-all: center;
+width: 95%;
+  alignment: center;
+
+}
+ion-card{
+  margin-left: 15%;
+  alignment: center;
+  width: 70%;
+  background: white;
+  height: 50%;
+}
+ion-button{
+
+  color: white;
+  background: white;
+  width: 68%;
+  margin-top: 3%;
+  margin-left: 16%;
+}
+ion-icon {
+  font-size: 100px;
+}
+.form{
+  padding-bottom: 50px;
+}

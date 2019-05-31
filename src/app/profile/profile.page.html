@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons   slot="start">
+
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">
+      Modifica Profilo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="background">
+  <ion-card>
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item slot="center" placeholder="Nome"><h1>danilo{{this.userName}}</h1></ion-item>
+      <ion-item placeholder="Cognome"><p>{{this.userSurname}}sprovieri</p></ion-item>
+      <ion-item placeholder="Contatto"><p>{{this.userEmail}}</p></ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

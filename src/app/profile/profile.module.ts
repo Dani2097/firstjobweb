@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPage } from './login.page';
-import {HTTP} from "@ionic-native/http/ngx";
+import { ProfilePage } from './profile.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
+    component: ProfilePage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
-    providers:[HTTP],
-  declarations: [LoginPage]
+  declarations: [ProfilePage]
 })
-export class LoginPageModule {}
+export class ProfilePageModule {}

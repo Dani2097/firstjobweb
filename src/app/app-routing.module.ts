@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'update-profile', loadChildren: './update-profile/update-profile.module#UpdateProfilePageModule' },
-  { path: 'lavoricaricati', loadChildren: './lavoricaricati/lavoricaricati.module#LavoricaricatiPageModule' }
+  { path: 'lavoricaricati', loadChildren: './lavoricaricati/lavoricaricati.module#LavoricaricatiPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
 ];
 
 @NgModule({
