@@ -12,18 +12,17 @@ export class PostServiceService {
     user_id;
     user_email = '';
     user_tabella;
-
+    session;
     constructor(public http: HttpClient) {
     }
 
     postService(body, url): Promise<any> {
-        return new Promise((res, rej) => {
+        return Promise((res, rej) => {
             this.http.post<any>(url, body)
                 .subscribe(data => {
                     res(data);
                     rej(data.error);
                 });
         });
-
     }
 }

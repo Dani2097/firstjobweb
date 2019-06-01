@@ -16,16 +16,15 @@
     <ion-card href="./home" *ngFor="let item of lavoriCaricati">
         <ion-card-header>
             <div class="ion-text-right"> {{item.categoria}}</div>
-            <ion-icon class="icone" [name]="item.icon"></ion-icon><a href="./login">{{item.title}}</a>
+           <a href="./login">{{item.nome}}</a>
         </ion-card-header>
         <ion-card-content>
 
 
             <div class="item-note" slot="center">
-                {{item.note}}
+                {{item.descrizione}}
             </div>
         </ion-card-content>
     </ion-card>
-
 
 </ion-content>

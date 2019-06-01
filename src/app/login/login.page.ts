@@ -1,19 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Observable} from 'rxjs';
-import {Storage} from '@ionic/storage';
 
-import {Headers, RequestOptions} from '@angular/http';
-import {LoginService} from '../Services/login.service';
 import {Router} from "@angular/router";
-import {map} from "rxjs/operators";
-import {HttpClient} from "@angular/common/http";
 
-import {throwErrorIfNoChangesMode} from "@angular/core/src/render3/errors";
-import {promise} from "selenium-webdriver";
 import {Promise} from "q";
-import {JsonArray} from "@angular-devkit/core";
-import {ArrayType} from "@angular/compiler";
+
 import {PostServiceService} from "../Services/post-service.service";
 
 
@@ -24,7 +15,7 @@ import {PostServiceService} from "../Services/post-service.service";
 })
 export class LoginPage implements OnInit {
 
-
+    click = false;
     username = '';
     password = '';
     request: Promise<any>;
@@ -46,9 +37,10 @@ export class LoginPage implements OnInit {
 
         this.result = this.service.postService(postData, this.url).then((data) => {
             this.request = data;
-            console.log(data);
+            console.log(data.error);
             this.controllo(!data.error, data);
-
+            if (this.click = true) this.router.navigate(['/home']);
+            else this.router.navigate(['/login']);
         }, err => {
             console.log(err.message);
         });
@@ -57,14 +49,15 @@ export class LoginPage implements OnInit {
 
     controllo(condizione, data) {
         if (condizione) {
-            this.service.user_Name=data.utente.nome;
-            this.service.user_Surname=data.utente.cognome;
-            this.service.user_email=data.utente.email;
-            this.service.user_id=data.utente.id;
-            this.service.user_tabella=data.utente.tabella;
-
+            this.service.user_Name = data.utente.nome;
+            this.service.user_Surname = data.utente.cognome;
+            this.service.user_email = data.utente.email;
+            this.service.user_id = data.utente.id;
+            this.service.user_tabella = data.utente.tabella;
+            this.service.session = true;
             console.log('false', data);
-            this.router.navigate(['/home']);
+            this.click = true;
+
         } else {
             this.router.navigate(['/login']);
             console.log('false');

@@ -1,23 +1,36 @@
 <ion-header>
-  <ion-toolbar color="medium">
-    <ion-buttons   slot="start">
+    <ion-toolbar color="medium">
+        <ion-buttons slot="start">
 
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title color="light">
-      Modifica Profilo
-    </ion-title>
-  </ion-toolbar>
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title color="light">
+Profilo
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
-<ion-content padding class="background">
-  <ion-card>
-    <ion-card-header>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item slot="center" placeholder="Nome"><h1>danilo{{this.userName}}</h1></ion-item>
-      <ion-item placeholder="Cognome"><p>{{this.userSurname}}sprovieri</p></ion-item>
-      <ion-item placeholder="Contatto"><p>{{this.userEmail}}</p></ion-item>
+<ion-content class="background">
 
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item class="forms" slot="center" placeholder="Nome"><h1>danilo{{this.userName}}</h1></ion-item>
+            <ion-item class="forms" placeholder="Cognome"><p>{{this.userSurname}}sprovieri</p></ion-item>
+            <ion-item class="forms" placeholder="Contatto"><p>{{this.userEmail}}</p></ion-item>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-list lines="none">
+        <ion-list-header>
+            <ion-label color="medium">Lavori Caricati</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let item of lavoriCaricati" href="./update-profile">
+            <ion-icon slot="start" color="medium" name="book"></ion-icon>
+            <ion-label>{{item.nome}}</ion-label>
+        </ion-item>
+
+
+    </ion-list>
+
 </ion-content>
