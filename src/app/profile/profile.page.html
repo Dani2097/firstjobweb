@@ -23,7 +23,7 @@ Profilo
 
     <ion-list lines="none">
         <ion-list-header>
-            <ion-label color="medium">Lavori Caricati</ion-label>
+            <ion-label color="medium">  <a (click)="postLavoriCaricati(service.user_id)"  >Visualizza lavori</a></ion-label>
         </ion-list-header>
         <ion-item *ngFor="let item of lavoriCaricati" href="./update-profile">
             <ion-icon slot="start" color="medium" name="book"></ion-icon>

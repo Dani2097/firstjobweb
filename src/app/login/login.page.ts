@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-
+import {Storage} from '@ionic/storage';
 import {Router} from "@angular/router";
 
 import {Promise} from "q";
@@ -20,9 +20,9 @@ export class LoginPage implements OnInit {
     password = '';
     request: Promise<any>;
     result: Promise<any>;
-    url = 'http://localhost/findjob/public/login';
+    url = 'http://backendfindjob.altervista.org/FindJob/public/index.php/login';
 
-    constructor(private service: PostServiceService, private router: Router) {
+    constructor(private service: PostServiceService, private router: Router, private storage:Storage) {
     }
 
     ngOnInit() {
@@ -55,6 +55,8 @@ export class LoginPage implements OnInit {
             this.service.user_id = data.utente.id;
             this.service.user_tabella = data.utente.tabella;
             this.service.session = true;
+            this.storage.set('utente',data.utente);
+            this.storage.set('session',true);
             console.log('false', data);
             this.click = true;
 

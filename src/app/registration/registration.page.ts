@@ -21,7 +21,7 @@ export class RegistrationPage implements OnInit {
     password = '';
     request: Promise<any>;
     result: Promise<any>;
-    url = 'http://localhost/findjob/public/registrazione';
+    url = 'http://backendfindjob.altervista.org/FindJob/public/index.php/registrazione';
 
     constructor(private service: PostServiceService, private router: Router) {
     }

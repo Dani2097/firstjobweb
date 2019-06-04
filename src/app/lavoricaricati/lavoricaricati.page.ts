@@ -12,7 +12,7 @@ import {Storage} from '@ionic/storage';
 export class LavoricaricatiPage implements OnInit {
 
     result;
-    url = 'http://localhost/findjob/public/visualizzalavoriperidutente';
+    url = 'http://backendfindjob.altervista.org/FindJob/public/index.php/visualizzalavoriperidutente';
     public lavoriCaricati = [];
 
     constructor(private service: PostServiceService, public storage: Storage) {

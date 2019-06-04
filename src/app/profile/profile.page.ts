@@ -17,10 +17,21 @@ export class ProfilePage implements OnInit {
     userTable = this.service.user_tabella;
     lavoriCaricati = [];
     request;
-    url = 'http://localhost/findjob/public/visualizzalavoriperidutente';
+    url = 'http://backendfindjob.altervista.org/FindJob/public/index.php/visualizzalavoriperidutente';
 
-    constructor(private service: PostServiceService, private storage: Storage ,private router: Router) {
-        this.postLavoriCaricati(this.userId);console.log(this.userId);
+    constructor(private service: PostServiceService, private storage: Storage, private router: Router) {
+
+        storage.get('utente').then(data => {
+            this.userName = data.nome;
+            this.userSurname = data.cognome;
+            this.userEmail = data.email;
+            this.userId = data.id;
+            this.userTable = data.tabella;
+            console.log(data.nome);
+            // this.postLavoriCaricati(this.userId);
+            console.log(this.userId);
+        });
+//
         if (!service.session) this.router.navigate(['/login']);
 
     }
