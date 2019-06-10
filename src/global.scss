@@ -9,3 +9,10 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+ion-item.logout{
+  border-left: 2px solid #446a87;
+}
+ion-content.background {
+
+  --background: url('https://backgrounddownload.com/wp-content/uploads/2018/09/app-background-2.jpg') 0 0/100% 100% no-repeat;
+}

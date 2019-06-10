@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="medium">
+        <ion-title>lavori nella piattaforma</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+    <ion-item>
+        <ion-label>Categoria</ion-label>
+        <ion-select [(ngModel)]="value" value="0" okText="Okay" cancelText="Dismiss"
+                    (ionChange)="postLavoriCategoria(value)">
+            <ion-select-option *ngFor="let cat of categoria " value={{cat.value}}>{{cat.name}}</ion-select-option>
+
+        </ion-select>
+
+    </ion-item>
+    <ion-item *ngFor="let item of lavoriCategoria" (click)="clickWork(item.id)">
+        <ion-icon slot="start" color="medium" name={{icona}}></ion-icon>
+        <ion-label>{{item.nome}}</ion-label>
+    </ion-item>
+</ion-content>

@@ -1,18 +1,16 @@
-ion-input {
+ion-item {
 
-  //box-shadow: 1px 1px 2px 0px #313131;
+
   margin-top: 1%;
   align-content: center;
   border-bottom: solid 1px white;
-  //background: rgba(0, 255, 255, 0.15);
-  // border-radius: 100px;
+
   color: #fbfff8;
 
 }
 .titolo{
   font-size: 60px;
   color: white;
-  font-family: Calibri,serif;
 }
 .grid{
   height: 70%;
@@ -20,9 +18,6 @@ ion-input {
 
   text-align: center;
 
-}
-ion-item{
-  color: black;
 }
 
 ion-button {
@@ -32,7 +27,7 @@ ion-button {
 }
 
 a {
-  font-family: Calibri, serif;
+
   color: #f9fffb;
 
 }

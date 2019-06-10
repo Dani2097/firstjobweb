@@ -4,24 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { IonicRatingModule } from 'ionic4-rating';
 
-import { ProfilePage } from './profile.page';
+import { LavoripiattaformaPage } from './lavoripiattaforma.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfilePage
+    component: LavoripiattaformaPage
   }
 ];
 
 @NgModule({
-  imports: [IonicRatingModule,
+  imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ProfilePage]
+  declarations: [LavoripiattaformaPage]
 })
-export class ProfilePageModule {}
+export class LavoripiattaformaPageModule {}

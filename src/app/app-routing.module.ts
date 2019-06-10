@@ -19,7 +19,12 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'update-profile', loadChildren: './update-profile/update-profile.module#UpdateProfilePageModule' },
   { path: 'lavoricaricati', loadChildren: './lavoricaricati/lavoricaricati.module#LavoricaricatiPageModule' },
-  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'accesso', loadChildren: './accesso/accesso.module#AccessoPageModule' },
+  { path: 'aggiungi', loadChildren: './aggiungi/aggiungi.module#AggiungiPageModule' },
+  { path: 'lavoripiattaforma', loadChildren: './lavoripiattaforma/lavoripiattaforma.module#LavoripiattaformaPageModule' },
+  { path: 'work-detail', loadChildren: './work-detail/work-detail.module#WorkDetailPageModule' },
+  { path: 'visualizza-profilo', loadChildren: './visualizza-profilo/visualizza-profilo.module#VisualizzaProfiloPageModule' }
 ];
 
 @NgModule({

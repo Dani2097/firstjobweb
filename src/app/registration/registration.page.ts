@@ -40,7 +40,7 @@ export class RegistrationPage implements OnInit {
             "password": this.password
 
         };
-        if (!(this.password == this.ripetipassword)) console.log('le password non coincidono')
+        if (!(this.password == this.ripetipassword)) alert('le password non coincidono');
         else {
             this.result = this.service.postService(postData, this.url).then((data) => {
                 this.request = data;

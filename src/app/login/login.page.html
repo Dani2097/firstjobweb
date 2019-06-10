@@ -6,9 +6,19 @@
             <ion-col>
                 <div>
                     <ion-title class="titolo">Log in</ion-title>
-
-                    <ion-input [(ngModel)]="username"  placeholder="Email"></ion-input>
-                    <ion-input  [(ngModel)]="password" placeholder="Password"></ion-input>
+                    <ion-item color="none" lines="none" class="email">
+                        <ion-input [(ngModel)]="username" placeholder="Email"></ion-input>
+                    </ion-item>
+                    <ion-item color="none" lines="none">
+                        <ion-input type="{{ !isActive ? 'password' : 'text' }}" [(ngModel)]="password"
+                                   placeholder="Password"></ion-input>
+                        <ion-icon color="light" slot="end"
+                                  [name]="isActive?'eye':'eye-off'"
+                                  item-right
+                                  (click)="isActive=!isActive;"
+                                  isActive=true>
+                        </ion-icon>
+                    </ion-item>
 
 
                 </div>
@@ -21,7 +31,6 @@
         </ion-row>
 
     </ion-grid>
-
 
 
 </ion-content>

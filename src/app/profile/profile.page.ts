@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {PostServiceService} from "../Services/post-service.service";
 import {Storage} from '@ionic/storage';
 import {Router} from "@angular/router";
+import {reject} from "q";
+import {UploadService} from "../Services/upload.service";
 
 
 @Component({
@@ -10,29 +12,40 @@ import {Router} from "@angular/router";
     styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-    userName = this.service.user_Name;
-    userSurname = this.service.user_Surname;
-    userEmail = this.service.user_email;
-    userId = this.service.user_id;
-    userTable = this.service.user_tabella;
+    categoria = this.service.categoria;
+    datore;
+    userContact;
+    userName;
+    userSurname;
+    userEmail;
+    userId;
+    userTable;
     lavoriCaricati = [];
     request;
     url = 'http://backendfindjob.altervista.org/FindJob/public/index.php/visualizzalavoriperidutente';
+    session;
 
-    constructor(private service: PostServiceService, private storage: Storage, private router: Router) {
-
-        storage.get('utente').then(data => {
-            this.userName = data.nome;
-            this.userSurname = data.cognome;
-            this.userEmail = data.email;
-            this.userId = data.id;
-            this.userTable = data.tabella;
-            console.log(data.nome);
-            // this.postLavoriCaricati(this.userId);
-            console.log(this.userId);
+    constructor(private service: PostServiceService, private storage: Storage, private router: Router, private uploadFtp: UploadService) {
+        this.storage.get('session').then(data2 => {
+            if (!data2) this.router.navigate(['/login']);
+            storage.get('utente').then(data => {
+                this.userName = data.nome;
+                this.userSurname = data.cognome;
+                this.userEmail = data.email;
+                this.userId = data.id;
+                this.userContact = data.contatto;
+                this.userTable = data.tabella;
+                if (this.userTable == 'datore') this.datore = true;
+                else this.datore = false;
+                console.log(this.datore);
+            }, rej => {
+                console.log('rejected' + rej);
+                this.router.navigate(['/login']);
+            });
         });
+
 //
-        if (!service.session) this.router.navigate(['/login']);
+
 
     }
 
@@ -40,40 +53,30 @@ export class ProfilePage implements OnInit {
 
     }
 
+    upload() {
+        this.uploadFtp.connect()
+    }
+
     postLavoriCaricati(id) {
 
         let postData = {
-            "id": id,
+            "id": this.userId,
         };
 
         this.service.postService(postData, this.url).then((data) => {
 
             this.storage.set('lavoro', data);
-            this.elaborate(!data.error, data);
+            for (var i = 0; i < data.lavoro.contatore; i++) {
+
+                this.lavoriCaricati[i] = data.lavoro[i];
+            }
+
 
         }, err => {
-            console.log(err.message);
+            console.log('attendi' + err.message);
         });
 
     }
 
-    elaborate(controllo, data) {
 
-
-
-        //
-        if (controllo) {
-
-            this.storage.get('lavoro').then(data => {
-                console.log(data);
-
-                for (var i = 0; i < data.lavoro.contatore; i++) {
-
-                    this.lavoriCaricati[i] = data.lavoro[i];
-                }
-                console.log('request2', this.request)
-            });
-        }
-
-    }
 }

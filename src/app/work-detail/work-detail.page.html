@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="medium">
+        <ion-title>Lavoro</ion-title>
+
+        <ion-buttons slot="start">
+
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+    <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item class="forms" slot="center" placeholder="Nome">
+                <ion-item class="form" slot="start" lines="none"><h2>Titolo:</h2></ion-item>
+                {{lavoro?.nome}}
+            </ion-item>
+
+            <ion-item class="forms" placeholder="Link">
+                <ion-item class="form" slot="start" lines="none"><h2 slot="start">Link:</h2></ion-item>
+                {{lavoro?.link}}
+            </ion-item>
+            <ion-item class="forms" placeholder="Datore">
+                <ion-item class="form" slot="start" lines="none"><h2 slot="start">Datore:</h2></ion-item>
+                <a (click)="clickDatore()">{{nomeDatore}}</a>
+            </ion-item>
+            <ion-item class="forms" placeholder="Descrizione">
+                <ion-textarea></ion-textarea>
+                <ion-item class="form" slot="start" lines="none"><h2 slot="start">Descrizione:</h2></ion-item>
+                {{lavoro?.descrizione}}
+            </ion-item>
+
+
+                        <ion-button color="medium" (click)="clickRichiesta()" slot="end">invia richiesta</ion-button>
+
+
+        </ion-card-content>
+    </ion-card>
+</ion-content>

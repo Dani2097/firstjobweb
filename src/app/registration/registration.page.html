@@ -4,21 +4,57 @@
         <ion-row>
             <ion-col>
                 <div>
-                    <ion-title class="titolo">Sign up</ion-title>
-                    <ion-input [(ngModel)]="nome" placeholder="Nome"></ion-input>
-                    <ion-input [(ngModel)]="cognome" placeholder="Cognome"></ion-input>
-                    <ion-input [(ngModel)]="username" placeholder="Email"></ion-input>
-                    <ion-input [(ngModel)]="contatto" placeholder="Contatto"></ion-input>
-                    <ion-input [(ngModel)]="password" placeholder="Password"></ion-input>
-                    <ion-input [(ngModel)]="ripetipassword" placeholder="Ripeti la password"></ion-input>
-                    <div class="datore"><ion-checkbox [(ngModel)]="check" ></ion-checkbox><ion-text color="light">    Spunta per registrarti come datore senno' sarai registrato come richiedente</ion-text></div>
+                    <ion-item color="none" lines="none" class="nonpass">
+                        <ion-title class="titolo">Sign up</ion-title>
+                    </ion-item>
+                    <ion-item color="none" lines="none" class="nontitle">
+                        <ion-input [(ngModel)]="nome" placeholder="Nome"></ion-input>
+                    </ion-item>
+                    <ion-item color="none" lines="none" class="nontitle">
+                        <ion-input [(ngModel)]="cognome" placeholder="Cognome"></ion-input>
+                    </ion-item>
+                    <ion-item color="none" lines="none" class="nontitle">
+                        <ion-input [(ngModel)]="username" placeholder="Email"></ion-input>
+                    </ion-item>
+                    <ion-item color="none" lines="none" class="nontitle">
+                        <ion-input type="{{ !isActive ? 'password' : 'text' }}" [(ngModel)]="password"
+                                   placeholder="Password"></ion-input>
+                        <ion-icon color="light" slot="end"
+                                  [name]="isActive?'eye':'eye-off'"
+                                  item-right
+                                  (click)="isActive=!isActive;"
+                                  isActive=true>
+                        </ion-icon>
+                    </ion-item>
+
+                    <ion-item class="nontitle" color="none" lines="none">
+                        <ion-input type="{{ !isActiver ? 'password' : 'text' }}" [(ngModel)]="ripetipassword"
+                                   placeholder="Ripeti la password"></ion-input>
+                        <ion-icon color="light" slot="end"
+                                  [name]="isActiver?'eye':'eye-off'"
+                                  item-right
+                                  (click)="isActiver=!isActiver;"
+                                  isActive=true>
+                        </ion-icon>
+                    </ion-item>
+                    <ion-item class="nontitle" color="none" lines="none" >
+                        <ion-input [(ngModel)]="contatto" placeholder="Contatto"></ion-input>
+                    </ion-item>
+                    <div class="datore">
+                        <ion-checkbox [(ngModel)]="check"></ion-checkbox>
+                        <ion-text color="light"> Spunta per registrarti come datore senno' sarai registrato come
+                            richiedente
+                        </ion-text>
+                    </div>
                 </div>
 
 
             </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col>  <ion-button (click)="postRegistrazione()" color="light">registrati</ion-button><a href="./login">Gia' registrato? clicca qui</a></ion-col>
+            <ion-col>
+                <ion-button (click)="postRegistrazione()" color="light">registrati</ion-button>
+                <a href="./login">Gia' registrato? clicca qui</a></ion-col>
 
         </ion-row>
     </ion-grid>

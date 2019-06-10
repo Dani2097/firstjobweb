@@ -4,24 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { IonicRatingModule } from 'ionic4-rating';
 
-import { ProfilePage } from './profile.page';
+import { AccessoPage } from './accesso.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfilePage
+    component: AccessoPage
   }
 ];
 
 @NgModule({
-  imports: [IonicRatingModule,
+  imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ProfilePage]
+  declarations: [AccessoPage]
 })
-export class ProfilePageModule {}
+export class AccessoPageModule {}

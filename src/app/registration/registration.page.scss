@@ -1,16 +1,16 @@
-ion-input {
+ion-item.nontitle{
 
   //box-shadow: 1px 1px 2px 0px #313131;
   margin-top: 1%;
   align-content: center;
-  border-bottom: solid 1px white;
+  border-bottom: solid 1px #ff0007;
   //background: rgba(0, 255, 255, 0.15);
   // border-radius: 100px;
   color: #fbfff8;
 
 }
 .titolo{
-  font-size: 60px;
+  font-size: 45px;
   color: white;
   font-family: Calibri,serif;
 }
@@ -28,7 +28,7 @@ ion-button {
 }
 
 a {
-  font-family: Calibri, serif;
+  font-family: "Arial Black", sans-serif;
   color: #f9fffb;
 
 }

@@ -6,19 +6,37 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title color="light">
-
+            Richieste ricevute
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="background">
 
-    <ion-card *ngFor="let item of lavoriCaricati">
-        <ion-card-header></ion-card-header>
+    <ion-card *ngFor="let item of Richieste; let i = index">
+
+        <ion-card-header>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size=9>
+                        <h5>
+                       <a class="titolo" (click)="lavoroClick(item.lavoro)">{{lavoronome[i].nome}}</a>
+                        </h5>
+                    </ion-col>
+                    <ion-col></ion-col>
+                    <ion-col size=2><ion-buttons (click)=presentConfirm(item.id) href="/lavoricaricati">
+                        <ion-icon  color="danger"name="trash"></ion-icon>
+                        </ion-buttons>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-header>
         <ion-card-content>
             <div class="item-note" slot="center">
-                {{item.descrizione}} {{item.created}}
+               L'utente <a
+                    (click)="richiedenteClick(item.richiedente)">{{richiedentenome[i].nome}} {{richiedentenome[i].cognome}}</a> chiede di farsi controllare il curriculum
             </div>
+
         </ion-card-content>
     </ion-card>
 

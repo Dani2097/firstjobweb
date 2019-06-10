@@ -3,9 +3,19 @@
     <ion-menu>
       <ion-header>
         <ion-toolbar color="medium">
-          <ion-title color="light">Menu</ion-title>
+          <ion-grid><ion-row>
+            <ion-col>
+              <ion-item color="medium" lines="none" ><ion-title  color="light">Menu</ion-title></ion-item>
+          </ion-col>
+            <ion-col>
+               <ion-item color="medium" lines="none" class="logout" href={{linktasto}}  (click)="logout()" ><ion-title  color="light">{{this.log}}</ion-title></ion-item>
+          </ion-col>
+          </ion-row>
+          </ion-grid>
         </ion-toolbar>
       </ion-header>
+
+
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">

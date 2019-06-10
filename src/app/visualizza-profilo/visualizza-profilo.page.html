@@ -13,7 +13,6 @@
 
     <ion-card>
         <ion-card-header>
-            Inscritto come {{this.userTable}}
         </ion-card-header>
         <ion-card-content>
             <ion-item class="forms" slot="center">
@@ -27,25 +26,21 @@
                 <ion-item class="form" slot="start" lines="none"><h5>Contatti:</h5></ion-item>
                 <ion-text><h3>{{this.userContact}}</h3></ion-text>
             </ion-item>
-            <ion-item class="forms">
 
-                <ion-item class="form" slot="start" lines="none"><h5>Email:</h5></ion-item>
-                <ion-text><h3>{{this.userEmail}}</h3></ion-text>
-            </ion-item>
+
+
+
+
         </ion-card-content>
     </ion-card>
 
-    <ion-list  lines="none">
+    <ion-list lines="none">
         <ion-list-header>
-            <ion-label *ngIf="!datore" color="medium"><a (click)="upload()">Carica curriculum</a></ion-label>
-            <ion-label *ngIf="datore" color="medium"><a (click)="postLavoriCaricati(this.userId)">Visualizza lavori</a></ion-label>
-            <a href="/aggiungi">
-                <ion-icon *ngIf="datore" class="add" name="add-circle" ></ion-icon>
+            <ion-label color="medium"><a (click)="postLavori()">Visualizza lavori di {{this.userName}}</a></ion-label>
 
-            </a>
         </ion-list-header>
         <ion-item *ngFor="let item of lavoriCaricati" href="./update-profile">
-            <ion-icon slot="start" color="medium" name={{categoria[item.categoria].icon}}></ion-icon>
+            <ion-icon slot="start" color="medium" name="book"></ion-icon>
             <ion-label>{{item.nome}}</ion-label>
         </ion-item>
 

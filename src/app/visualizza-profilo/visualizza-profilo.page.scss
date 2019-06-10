@@ -2,8 +2,10 @@ ion-content.background {
 
   --background: url('https://backgrounddownload.com/wp-content/uploads/2018/09/app-background-2.jpg') 0 0/100% 100% no-repeat;
 }
-
-h1{
+h5{
+  font-size: 12px;
+}
+h3{
   color: #4c8dff;
 
   margin: auto;
@@ -12,28 +14,17 @@ h1{
   color: #4c8dff;
   font-size: 200%;
 }
-ion-item.forms, ion-text{
+ion-item.forms{
 
   font-size: 68px;
-  align-content: center;
-  align-items: center;
-  text-align: center;
-  alignment-baseline: center;
-  text-align-all: center;
-width: 95%;
+
+  width: 95%;
   alignment: center;
 
 }
+
 ion-list{
   margin-top: 40%;
-}
-h5{
-  font-size: 12px;
-}
-h3{
-  color: #4c8dff;
-
-  margin: auto;
 }
 ion-card{
   margin-left: 10%;
@@ -50,6 +41,7 @@ ion-button{
   margin-top: 3%;
   margin-left: 16%;
 }
+
 
 .form{
   width: 37%;
