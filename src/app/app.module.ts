@@ -14,7 +14,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { IonicRatingModule } from "ionic4-rating/dist";
 import {FileChooser} from "@ionic-native/file-chooser/ngx";
-import {FilePath} from "@ionic-native/file-path/ngx";
+
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
@@ -28,7 +28,7 @@ import {FilePath} from "@ionic-native/file-path/ngx";
         HttpClientModule
     ],
     providers: [
-        FilePath,
+
         FileChooser,
         FTP,
         StatusBar,

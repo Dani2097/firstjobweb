@@ -54,7 +54,7 @@ export class ProfilePage implements OnInit {
     }
 
     upload() {
-        this.uploadFtp.connect()
+        this.uploadFtp.connect(this.userId,'http://backendfindjob.altervista.org/File/curriculum'+this.userId+'.pdf')
     }
 
     postLavoriCaricati(id) {
