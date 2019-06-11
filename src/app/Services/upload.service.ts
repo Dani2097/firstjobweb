@@ -25,7 +25,7 @@ export class UploadService {
                     .then(uri => {
 
                         this.service.postService(postData,this.url).then((data)=>{
-                            alert('in trasferimento',data);
+                            console.log('in trasferimento',data);
                             }
                         );
                         this.ftp.upload(uri, '/local/curriculum').toPromise().then((d) => {
