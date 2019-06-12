@@ -2,7 +2,9 @@ ion-content.background {
 
   --background: url('https://backgrounddownload.com/wp-content/uploads/2018/09/app-background-2.jpg') 0 0/100% 100% no-repeat;
 }
-
+img{
+  alignment: center;
+}
 h1{
   color: #4c8dff;
 
@@ -50,7 +52,9 @@ ion-button{
   margin-top: 3%;
   margin-left: 16%;
 }
-
+.nuovapagina{
+  color :black;
+}
 .form{
   width: 37%;
   margin-left: -28px;

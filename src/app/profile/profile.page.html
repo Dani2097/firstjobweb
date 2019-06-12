@@ -10,7 +10,7 @@
     </ion-toolbar>
 </ion-header>
 <ion-content class="background">
-
+    <ion-button color="danger" *ngIf="!datore" (click)="rimuoviRichiesta()">Rimuovi richiesta in sospeso</ion-button>
     <ion-card>
         <ion-card-header>
             Inscritto come {{this.userTable}}
@@ -35,21 +35,29 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-list  lines="none">
+    <ion-list lines="none">
         <ion-list-header>
-            <ion-label *ngIf="!datore" color="medium"><a (click)="upload()">Carica curriculum</a></ion-label>
-            <ion-label *ngIf="datore" color="medium"><a (click)="postLavoriCaricati(this.userId)">Visualizza lavori</a></ion-label>
+            <ion-label *ngIf="!datore" color="medium"><a (click)="upload()">Ricarica curriculum (RICORDA deve essere un file
+                immagine )</a></ion-label>
+            <ion-label *ngIf="datore" color="medium"><a (click)="postLavoriCaricati(this.userId)">Visualizza lavori</a>
+            </ion-label>
             <a href="/aggiungi">
-                <ion-icon *ngIf="datore" class="add" name="add-circle" ></ion-icon>
+                <ion-icon *ngIf="datore" class="add" name="add-circle"></ion-icon>
 
             </a>
         </ion-list-header>
-        <ion-item *ngFor="let item of lavoriCaricati" href="./update-profile">
+        <ion-item *ngFor="let item of lavoriCaricati" (click)="clicklavoro(item.id)">
             <ion-icon slot="start" color="medium" name={{categoria[item.categoria].icon}}></ion-icon>
             <ion-label>{{item.nome}}</ion-label>
         </ion-item>
 
-
+        <ion-card *ngIf="!datore">
+            <ion-card-header></ion-card-header>
+            <ion-card-content>
+                <ion-item *ngFor="let item of imageurl ; let i=index"><img *ngIf="ready" [src]="item"></ion-item>
+            </ion-card-content>
+        </ion-card>
+<ion-button *ngIf="!datore" (click)="upload2pagine()">Ricarica 2 pagina</ion-button>
     </ion-list>
 
 </ion-content>

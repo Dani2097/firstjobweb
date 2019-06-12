@@ -30,28 +30,31 @@ export class RegistrationPage implements OnInit {
     }
 
     postRegistrazione() {
-        if (this.check) this.table = 2; else this.table = 4;
-        let postData = {
-            "nome": this.nome,
-            "cognome": this.cognome,
-            "table": this.table,
-            "contatto": this.contatto,
-            "email": this.username,
-            "password": this.password
+        if (this.password.length < 8) {
+            alert('la password deve contenere almeno 8 caratteri')
+        } else {
+            if (this.check) this.table = 2; else this.table = 4;
+            let postData = {
+                "nome": this.nome,
+                "cognome": this.cognome,
+                "table": this.table,
+                "contatto": this.contatto,
+                "email": this.username,
+                "password": this.password
 
-        };
-        if (!(this.password == this.ripetipassword)) alert('le password non coincidono');
-        else {
-            this.result = this.service.postService(postData, this.url).then((data) => {
-                this.request = data;
-                console.log(data.error);
+            };
+            if (!(this.password == this.ripetipassword)) alert('le password non coincidono');
+            else {
+                this.result = this.service.postService(postData, this.url).then((data) => {
+                    this.request = data;
+                    console.log(data.error);
 
 
-            }, err => {
-                console.log(err.message);
-            });
-            this.router.navigate(['/login']);
+                }, err => {
+                    console.log(err.message);
+                });
+                this.router.navigate(['/login']);
+            }
         }
     }
-
 }

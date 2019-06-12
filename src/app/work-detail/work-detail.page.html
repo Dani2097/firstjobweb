@@ -14,6 +14,9 @@
         <ion-card-header>
         </ion-card-header>
         <ion-card-content>
+            <ion-buttons class="trash" slot="end"  *ngIf="sedatore" (click)=presentConfirm() href="/lavoricaricati">
+                <ion-icon  color="danger"name="trash"></ion-icon>
+            </ion-buttons>
             <ion-item class="forms" slot="center" placeholder="Nome">
                 <ion-item class="form" slot="start" lines="none"><h2>Titolo:</h2></ion-item>
                 {{lavoro?.nome}}
@@ -34,7 +37,7 @@
             </ion-item>
 
 
-                        <ion-button color="medium" (click)="clickRichiesta()" slot="end">invia richiesta</ion-button>
+                        <ion-button *ngIf="!sedatore" color="medium" (click)="clickRichiesta()" slot="end">invia richiesta</ion-button>
 
 
         </ion-card-content>

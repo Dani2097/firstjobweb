@@ -10,7 +10,7 @@ import {PostServiceService} from "../Services/post-service.service";
 })
 export class VisualizzaProfiloPage implements OnInit {
     rate;
-    rateon=false;
+    rateon = false;
     userName;
     userSurname;
     userEmail;
@@ -19,22 +19,31 @@ export class VisualizzaProfiloPage implements OnInit {
     request;
     url = 'http://backendfindjob.altervista.org/FindJob/public/index.php/visualizzaprofilo';
     url2 = 'http://backendfindjob.altervista.org/FindJob/public/index.php/visualizzalavoriperidutente';
+    imageurl = ["http://backendfindjob.altervista.org/File/curriculum"+this.service.id+".jpg", "http://backendfindjob.altervista.org/File/curriculum"+this.service.id+"_1.jpg"];
+    datore;
 
     constructor(private service: PostServiceService, private storage: Storage, private router: Router) {
 
-this.storage.get('session').then(data => {
+        this.storage.get('session').then(data => {
             if (!data) this.router.navigate(['/login']);
             this.content()
         });
 
 
     }
-
+    ionViewWillEnter() {    if (this.service.tablen == 2) {
+        console.log(this.service.tablen);
+        this.datore = true
+    } else {
+        this.datore = false;
+        console.log(this.service.tablen);
+    }}
     content() {
+
         let postData2 = {
 
-             'id': this.service.id,
-            "tabella": '2'
+            'id': this.service.id,
+            "tabella": this.service.tablen
         };
         console.log(postData2);
         this.service.postService(postData2, this.url).then((data) => {
@@ -48,9 +57,7 @@ this.storage.get('session').then(data => {
             console.log('errore', err)
         });
     }
-    onRateChange(){
-        console.log(this.rate);
-    }
+
     postLavori() {
 
         let postData = {

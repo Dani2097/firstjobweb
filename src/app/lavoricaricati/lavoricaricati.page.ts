@@ -192,9 +192,9 @@ export class LavoricaricatiPage implements OnInit {
     }
 
     richiedenteClick(i) {
-        this.service.table = 4;
+        this.service.tablen = 4;
         this.service.id = i;
-
+console.log( this.service.tablen);
         this.router.navigate(['/visualizza-profilo'])
     }
 

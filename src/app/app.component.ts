@@ -88,12 +88,12 @@ export class AppComponent implements OnChanges {
                 this.log = 'Login';
                 this.linktasto = '/login';
                 console.log('la sessione e: ' + data);
-                this.appPages[1] = {
-                    title: 'Come funziona',
-                    url: '/credits',
-                    icon: 'briefcase'
-                };
                 this.appPages[2] = {
+                    title: '',
+                    url: '/credits',
+                    icon: ''
+                };
+                this.appPages[1] = {
                     title: 'Contattaci',
                     url: '/credits',
                     icon: 'person'

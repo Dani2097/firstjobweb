@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {PostServiceService} from "../Services/post-service.service";
 import {Storage} from "@ionic/storage";
 import {Router} from "@angular/router";
+import {Alert} from "selenium-webdriver";
+import {AlertController} from "@ionic/angular";
 
 @Component({
     selector: 'app-work-detail',
@@ -14,8 +16,18 @@ export class WorkDetailPage implements OnInit {
     url = 'http://backendfindjob.altervista.org/FindJob/public/index.php/visualizzalavoriperid';
     url2 = 'http://backendfindjob.altervista.org/FindJob/public/index.php/visualizzaprofilo';
     url3 = 'http://backendfindjob.altervista.org/FindJob/public/index.php/nuovarichiesta';
+    url4 = 'http://backendfindjob.altervista.org/FindJob/public/index.php/rimuovilavoro/';
+    sedatore = false;
+    check;
 
-    constructor(private service: PostServiceService, private storage: Storage, private router: Router) {
+    constructor(private service: PostServiceService, private storage: Storage, private router: Router, private alert: AlertController) {
+        this.storage.get('utente').then((data) => {
+            // console.log(data);console.log(data.tabella);
+            if (data.tabella == 'datore') {
+                this.sedatore = true
+            } else this.sedatore = false
+        });
+        this.postLavoro();
     }
 
     ngOnInit() {
@@ -23,9 +35,49 @@ export class WorkDetailPage implements OnInit {
     }
 
     clickDatore() {
-        this.service.table = 2;
+        this.service.tablen = 2;
         this.service.id = this.lavoro.datore;
         this.router.navigate(['/visualizza-profilo']);
+    }
+
+    presentConfirm() {
+        let id = this.lavoro.id;
+        let alert = this.alert.create({
+            message: 'Vuoi davvero cancellare questa richiesta?',
+            buttons: [
+                {
+                    text: 'No',
+                    role: 'cancel',
+                    handler: () => {
+
+                        console.log('Cancel clicked');
+
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: () => {
+                        this.clickelimina(this.service.workid);
+
+                    }
+                }
+            ]
+        }).then(alert => {
+            alert.present()
+        });
+
+    }
+
+    clickelimina(id) {
+
+        let deleteData = {
+            'id': id
+        };
+        let url = this.url4 + id;
+        console.log(url);
+        this.service.deleteService(url, deleteData).then(data => {
+            this.router.navigate(['/home'])
+        });
     }
 
     clickRichiesta() {
@@ -38,8 +90,13 @@ export class WorkDetailPage implements OnInit {
 
             };
             this.service.postService(postData3, this.url3).then((data2) => {
-
-                alert('Richiesta inviata');
+                console.log(data2.error);
+                this.check = data2.error;
+                if (this.check) {
+                    alert('Puoi avere solo una richiesta per volta in sospeso');
+                } else {
+                    alert('Richiesta inviata');
+                }
             });
 
         })

@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button color="medium"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>segnalaProfilo</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+    <ion-card color="light">
+        <ion-card-header>
+            <ion-item color="none" lines="none" class="nonpass">
+                <ion-title class="titolo">Segnala profilo</ion-title>
+            </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-grid class="grid">
+
+                <ion-row>
+                    <ion-col>
+                        <div>
+
+                            <ion-item color="none" class="nontitle">
+                                <ion-input [(ngModel)]="nome" placeholder="Nome"></ion-input>
+                            </ion-item>
+                            <ion-item color="none" class="nontitle">
+                                <ion-input [(ngModel)]="cognome" placeholder="Cognome"></ion-input>
+                            </ion-item>
+                            <ion-item color="none" class="nontitle">
+                                <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
+                            </ion-item>
+                            <ion-item color="none" class="nontitle">
+                                <ion-input [(ngModel)]="emailsegnalato" placeholder="Email segnalato"></ion-input>
+                            </ion-item>
+                            <ion-item color="none" class="nontitle">
+                                <ion-input [(ngModel)]="motivo" placeholder="motivo"></ion-input>
+                            </ion-item>
+                            <ion-button color="medium"(click)="send()">send</ion-button>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

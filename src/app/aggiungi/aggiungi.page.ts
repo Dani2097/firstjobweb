@@ -9,11 +9,11 @@ import {PostServiceService} from "../Services/post-service.service";
     styleUrls: ['./aggiungi.page.scss'],
 })
 export class AggiungiPage implements OnInit {
-
+    value
     Link;
     Nome;
     Descrizione;
-    Categoria;
+    categoria=this.service.categoria;
     userId;
     userTable;
     update = [];
@@ -48,7 +48,7 @@ export class AggiungiPage implements OnInit {
         });
     }
 
-    postAdd() {
+    postAdd(idcat) {
 
 
         let postData = {
@@ -56,9 +56,9 @@ export class AggiungiPage implements OnInit {
             "nome": this.Nome,
             "descrizione": this.Descrizione,
             "link": this.Link,
-            "categoria": this.Categoria
+            "categoria": this.value
         };
-
+console.log(postData);
         this.service.postService(postData, this.url).then((data) => {
             if (!data.error) {
                 alert('caricamento effettuato conb successo');

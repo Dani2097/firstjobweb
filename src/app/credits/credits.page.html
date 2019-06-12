@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar color="medium">
+        <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+        <ion-title>Team di sviluppo</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+    <ion-card color='light' *ngFor="let profilo of profili">
+        <ion-card-header>
+            <h1>{{profilo.titolo}}<a href={{profilo.facebook}}>
+                <ion-icon class=' icone' color='medium' name="logo-facebook"></ion-icon>
+            </a>
+                <a href={{profilo.instagram}}>
+                    <ion-icon class=' icone' color='medium' name="logo-instagram"></ion-icon></a></h1>
+
+        </ion-card-header>
+        <ion-card-content><img [src]="profilo.immagine"></ion-card-content>
+    </ion-card>
+</ion-content>

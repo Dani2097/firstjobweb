@@ -36,15 +36,29 @@
 
     <ion-list lines="none">
         <ion-list-header>
-            <ion-label color="medium"><a (click)="postLavori()">Visualizza lavori di {{this.userName}}</a></ion-label>
+            <ion-label *ngIf="!datore" color="medium"><a (click)="upload()">Carica curriculum (deve essere un file
+                immagine se composto da piu immagini clicca su aggiungi pagina)</a></ion-label>
+            <ion-label *ngIf="datore" color="medium"><a (click)="postLavoriCaricati(this.userId)">Visualizza lavori</a>
+            </ion-label>
+            <a href="/aggiungi">
+                <ion-icon *ngIf="datore" class="add" name="add-circle"></ion-icon>
 
+            </a>
         </ion-list-header>
         <ion-item *ngFor="let item of lavoriCaricati" href="./update-profile">
-            <ion-icon slot="start" color="medium" name="book"></ion-icon>
+            <ion-icon slot="start" color="medium" name={{categoria[item.categoria].icon}}></ion-icon>
             <ion-label>{{item.nome}}</ion-label>
         </ion-item>
 
+        <ion-card *ngIf="!datore">
+            <ion-card-header></ion-card-header>
+            <ion-card-content>
+                <ion-item *ngFor="let item of imageurl ; let i=index"><img [src]="item"></ion-item>
+            </ion-card-content>
+        </ion-card>
 
     </ion-list>
+
+
 
 </ion-content>

@@ -24,7 +24,11 @@ const routes: Routes = [
   { path: 'aggiungi', loadChildren: './aggiungi/aggiungi.module#AggiungiPageModule' },
   { path: 'lavoripiattaforma', loadChildren: './lavoripiattaforma/lavoripiattaforma.module#LavoripiattaformaPageModule' },
   { path: 'work-detail', loadChildren: './work-detail/work-detail.module#WorkDetailPageModule' },
-  { path: 'visualizza-profilo', loadChildren: './visualizza-profilo/visualizza-profilo.module#VisualizzaProfiloPageModule' }
+  { path: 'visualizza-profilo', loadChildren: './visualizza-profilo/visualizza-profilo.module#VisualizzaProfiloPageModule' },
+  { path: 'recupero-password', loadChildren: './recupero-password/recupero-password.module#RecuperoPasswordPageModule' },
+  { path: 'segnala-profilo', loadChildren: './segnala-profilo/segnala-profilo.module#SegnalaProfiloPageModule' },
+  { path: 'credits', loadChildren: './credits/credits.module#CreditsPageModule' },
+  { path: 'tutorial', loadChildren: './tutorial/tutorial.module#TutorialPageModule' }
 ];
 
 @NgModule({

@@ -9,13 +9,14 @@ export class PostServiceService {
     workid;
     id;
     table;
+    tablen;
     user_Name = '';
     user_Surname = '';
     user_id;
     user_email = '';
     user_tabella;
     session;
-
+urlimg;
     constructor(public http: HttpClient) {
     }
 
@@ -52,11 +53,11 @@ export class PostServiceService {
     }, {
         value: 3,
         name: 'Sport',
-        icon: 'ball'
+        icon: 'basketball'
     }, {
         value: 4,
         name: 'Agricoltura e ambiente',
-        icon: 'ball'
+        icon: 'flower'
     }, {
         value: 5,
         name: 'Cultura',

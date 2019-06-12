@@ -1,33 +1,38 @@
 <ion-header>
-  <ion-toolbar color="medium">
-    <ion-buttons   slot="start">
+    <ion-toolbar color="medium">
+        <ion-buttons slot="start">
 
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title color="light">
-      Carica lavoro
-    </ion-title>
-  </ion-toolbar>
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title color="light">
+            Carica lavoro
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 <ion-content padding class="background">
-  <ion-card>
-    <ion-card-header>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item color="none" lines="none" class="nonpass">
-        <ion-input [(ngModel)]="Nome" placeholder="Nome"></ion-input>
-      </ion-item>
-      <ion-item color="none" lines="none" class="nonpass">
-        <ion-input [(ngModel)]="Categoria" placeholder="Categoria"></ion-input>
-      </ion-item>
-      <ion-item color="none" lines="none" class="nonpass">
-        <ion-input [(ngModel)]="Descrizione" placeholder="Descrizione"></ion-input>
-      </ion-item>
-      <ion-item color="none" lines="none" class="nonpass">
-        <ion-input [(ngModel)]="Link" placeholder="Link"></ion-input>
-      </ion-item>
-      <ion-button color="medium" (click)="postAdd()">Submit</ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+        <ion-card-header>
+
+        </ion-card-header>
+        <ion-card-content>
+
+
+            <ion-item color="none" lines="none" class="nonpass">
+                <ion-input [(ngModel)]="Nome" placeholder="Nome"></ion-input>
+            </ion-item>
+
+            <ion-item color="none" lines="none" class="nonpass">
+                <ion-input [(ngModel)]="Descrizione" placeholder="Descrizione"></ion-input>
+            </ion-item>
+            <ion-item color="none" lines="none" class="nonpass">
+                <ion-input [(ngModel)]="Link" placeholder="Link"></ion-input>
+            </ion-item>
+            <ion-select  [(ngModel)]="value" value="0" okText="Okay" cancelText="Dismiss">
+            <ion-select-option *ngFor="let cat of categoria " value={{cat.value}}>{{cat.name}}</ion-select-option>
+
+        </ion-select>
+            <ion-button color="medium" (click)="postAdd()">Submit</ion-button>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
 

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { IonicRatingModule } from 'ionic4-rating';
 
 import { ProfilePage } from './profile.page';
+import {PdfViewerModule} from "ng2-pdf-viewer";
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [IonicRatingModule,
+      PdfViewerModule,
     CommonModule,
     FormsModule,
     IonicModule,

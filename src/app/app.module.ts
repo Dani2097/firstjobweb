@@ -15,11 +15,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { IonicRatingModule } from "ionic4-rating/dist";
 import {FileChooser} from "@ionic-native/file-chooser/ngx";
 
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
     imports: [
-
+        PdfViewerModule,
         BrowserModule,
         IonicRatingModule,
         IonicModule.forRoot(),
@@ -28,7 +32,9 @@ import {FileChooser} from "@ionic-native/file-chooser/ngx";
         HttpClientModule
     ],
     providers: [
-
+        File,
+        FileOpener,
+        DocumentViewer,
         FileChooser,
         FTP,
         StatusBar,
